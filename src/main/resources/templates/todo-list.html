@@ -1,0 +1,22 @@
+<!-- todo-list.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+</head>
+<body>
+<ul>
+    <li th:each="toDo : ${toDos}">
+        <span th:text="${toDo.title}"></span>
+        <!-- Add other fields as needed -->
+    </li>
+</ul>
+<form action="/add" method="post" th:object="${toDo}">
+    <input type="text" th:field="*{title}" placeholder="Title" required>
+    <!-- Add other input fields -->
+    <button type="submit">Add</button>
+</form>
+<h1>To-Do List</h1>
+</body>
+</html>
